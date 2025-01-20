@@ -1,0 +1,16 @@
+{
+	"workspace": {
+		"checkThirdParty": false,
+		"library": [
+			"{3rd}/love2d/library",
+			"~/.local/share/Steam/steamapps/common/Balatro/appdata/Mods/Steamodded",
+			"~/.local/share/Steam/steamapps/common/Balatro/extract/"
+		]
+	},
+	"runtime": {
+		"version": "LuaJIT"
+	},
+	"diagnostics": {
+		"disable": ["lowercase-global"]
+	}
+}

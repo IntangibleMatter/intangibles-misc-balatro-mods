@@ -1,0 +1,13 @@
+{
+	"id": "yurilatro",
+	"name": "Yurilatro",
+	"author": ["IntangibleMatter"],
+	"description": "Someone in a post asked for a Yuri Joker in Balatro that gives a bonus when you have multiple queens, so here you go. Plus a little Yaoi for fun.",
+	"prefix": "Yurilatro",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "D52D00",
+	"badge_text_colour": "D162A4",
+	"version": "0.1.0",
+	"dependencies": []
+}
