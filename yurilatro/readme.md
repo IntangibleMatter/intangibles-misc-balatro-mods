@@ -11,9 +11,9 @@ measure.
 
 - Yuri
     - RARE, $8
-    - Gives x1 mult for each queen if you have a pair of queens in your played
+    - Gives x1 mult for each played queen if you have a pair of queens in your played
         hand.
 - Yaoi
     - RARE, $8
-    - Gives x1 mult for each King or Jack if you have a pair of either in your
+    - Gives x1 mult for each played King or Jack if you have a pair of either in your
         played hand.
