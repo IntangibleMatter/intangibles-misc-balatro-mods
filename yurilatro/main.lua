@@ -10,8 +10,9 @@ SMODS.Joker({
 	loc_txt = {
 		name = "yaoi",
 		text = {
-			"Gives {X:mult,C:white}x#1#{} Mult per scoring",
-			"{C:attention}King{} or {C:attention}Jack{} if played",
+			"Gives {X:mult,C:white}x#1#{} Mult per played",
+			"{C:attention}King{} or {C:attention}Jack{} in your"
+			"scoring hand if played hand",
 			"contains a {C:attention}pair{} of either.",
 		},
 	},
@@ -70,9 +71,9 @@ SMODS.Joker({
 	loc_txt = {
 		name = "yuri",
 		text = {
-			"Gives {X:mult,C:white}x#1#{} Mult per scoring",
-			"{C:attention}Queen{} or if played hand contains",
-			"a {C:attention}Pair{}of {C:attention}Queens{}.",
+			"Gives {X:mult,C:white}x#1#{} Mult per played",
+			"{C:attention}Queen{} in scoring hand if",
+			"it contains a {C:attention}Pair{}of {C:attention}Queens{}.",
 		},
 	},
 
