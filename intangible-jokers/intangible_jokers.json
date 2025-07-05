@@ -1,0 +1,13 @@
+{
+	"id": "intangible_jokers",
+	"name": "Intangible's Joker Pack",
+	"author": ["IntangibleMatter"],
+	"description": "IntangibleMatter's miscellaneous Balatro Jokers",
+	"prefix": "intangible",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "111111",
+	"badge_text_colour": "CCCCCC",
+	"version": "0.1.0",
+	"dependencies": []
+}

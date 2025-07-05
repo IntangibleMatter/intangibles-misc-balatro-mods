@@ -1,0 +1,13 @@
+{
+	"id": "wheel_test",
+	"name": "Wheel Test",
+	"author": ["IntangibleMatter"],
+	"description": "A mod to help test if Wheel is {C:attention}ACTUALLY{} a {C:attention}1 in 4{} chance.",
+	"prefix": "WheelTest",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "D52D00",
+	"badge_text_colour": "D162A4",
+	"version": "0.1.0",
+	"dependencies": []
+}
