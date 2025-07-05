@@ -31,6 +31,9 @@ SMODS.Back({
 			},
 		}
 	end,
+	apply = function(self, back)
+		G.GAME.banned_keys["j_oops"] = true
+	end,
 	calculate = function(self, back, context)
 		if context.ending_shop then
 			G.E_MANAGER:add_event(Event({
