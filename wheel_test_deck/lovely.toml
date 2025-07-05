@@ -1,0 +1,28 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 10
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.ability.name == 'The Wheel of Fortune' or self.ability.name == 'Ectoplasm' or self.ability.name == 'Hex' then"
+position = "after"
+payload = """
+if self.ability.name == "The Wheel of Fortune" and G.GAME.selected_back.name == "Wheel Deck" then
+	G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_attempts = (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_attempts or 0) + 1
+end
+"""
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.ability.name == 'Ectoplasm' or self.ability.name == 'Hex' or pseudorandom('wheel_of_fortune') < G.GAME.probabilities.normal/self.ability.extra then"
+position = "after"
+payload = """
+if self.ability.name == "The Wheel of Fortune" and G.GAME.selected_back.name == "Wheel Deck" then
+	G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_successes = (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_successes or 0) + 1
+end
+"""
+match_indent = true

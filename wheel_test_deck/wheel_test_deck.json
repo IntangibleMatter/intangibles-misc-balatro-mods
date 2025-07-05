@@ -9,5 +9,5 @@
 	"badge_colour": "D52D00",
 	"badge_text_colour": "D162A4",
 	"version": "0.1.0",
-	"dependencies": []
+	"dependencies": ["FlowerPot (>=0.8.1)"]
 }

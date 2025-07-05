@@ -1,6 +1,6 @@
 SMODS.Atlas({
-	key = "wheeltest",
-	path = "wheeltest.png",
+	key = "atlas_wheedeck",
+	path = "wheeldeck.png",
 	px = 71,
 	py = 95,
 })
@@ -8,30 +8,36 @@ SMODS.Atlas({
 SMODS.Back({
 	name = "Wheel Deck",
 	key = "wheeldeck",
+	--atlas = "atlas_wheeldeck",
 	pos = { x = 0, y = 0 },
 	config = { wheeldeck = true },
 	loc_txt = {
 		name = "Wheel Deck",
 		text = {
-			"Create a {C:dark_edition}Negative {C:Attention}Wheel of Fortune{} card after",
-			"every played hand.",
-			"{C:Attention}Oops! All Sixes!{} is banned.",
+			"Create a {C:dark_edition}Negative",
+			"{C:attention}Wheel of Fortune{} card",
+			"after every shop.",
+			"Rate: {C:attention}#1#{} / {C:attention}#2#{} ({C:attention}#3#{}%)",
 		},
 	},
+	loc_vars = function(self, info_queue, card)
+		attempts = (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_attempts or 0)
+		successes = (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_successes or 0)
+		return {
+			vars = {
+				successes,
+				attempts,
+				(successes / attempts) * 100,
+			},
+		}
+	end,
 	calculate = function(self, back, context)
-		if context == "final_scoring_step" then
+		if context.ending_shop then
 			G.E_MANAGER:add_event(Event({
 				func = function()
-					-- pseudorandom_element is a vanilla function that chooses a single random value from a table of values, which in this case, is your consumables.
-					-- pseudoseed('perkeo2') could be replaced with any text string at all - It's simply a way to make sure that it's affected by the game seed, because if you use math.random(), a base Lua function, then it'll generate things truly randomly, and can't be reproduced with the same Balatro seed. LocalThunk likes to have the joker names in the pseudoseed string, so you'll often find people do the same.
-					local card =
-						create_card("Tarot", G.consumables, nil, nil, nil, nil, "c_wheel_of_fortune", "wheeldeck")
-
-					-- Vanilla function, it's (edition, immediate, silent), so this is ({edition = 'e_negative'}, immediate = true, silent = nil)
+					card = create_card("Tarot", G.consumables, nil, nil, nil, nil, "c_wheel_of_fortune", "wheeldeck")
 					card:set_edition("e_negative", true)
 					card:add_to_deck()
-					-- card:emplace puts a card in a cardarea, this one is G.consumeables, but G.jokers works, and custom card areas could also work.
-					-- I think playing cards use "create_playing_card()" and are separate.
 					G.consumeables:emplace(card)
 					return true
 				end,
@@ -39,5 +45,36 @@ SMODS.Back({
 		end
 	end,
 })
+
+FlowerPot.addRecord({
+	key = "IM_WHEELDECK_wheel_successes",
+	add_tooltips = function(self, info_queue, card_progress, card)
+		info_queue[#info_queue + 1] = {
+			key = "IM_WHEELDECK_wheel_successes",
+			set = "Other",
+			vars = { to_number(G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_successes or self.default) },
+		}
+	end,
+	check_record = function(self, card)
+		return (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_successes or 0)
+	end,
+	default = 0,
+})
+FlowerPot.addRecord({
+	key = "IM_WHEELDECK_wheel_attempts",
+	add_tooltips = function(self, info_queue, card_progress, card)
+		info_queue[#info_queue + 1] = {
+			key = "IM_WHEELDECK_wheel_attempts",
+			set = "Other",
+			vars = { to_number(G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_attempts or self.default) },
+		}
+	end,
+	check_record = function(self, card)
+		return (G.PROFILES[G.SETTINGS.profile].IM_WHEELDECK_wheel_attempts or 0)
+	end,
+	default = 0,
+})
+
+--FlowerPot.
 
 -- todo: Create a Function which tracks how often Wheel of Fortune Succeeds.

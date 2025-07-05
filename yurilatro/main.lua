@@ -11,7 +11,7 @@ SMODS.Joker({
 		name = "yaoi",
 		text = {
 			"Gives {X:mult,C:white}x#1#{} Mult per played",
-			"{C:attention}King{} or {C:attention}Jack{} in your"
+			"{C:attention}King{} or {C:attention}Jack{} in your",
 			"scoring hand if played hand",
 			"contains a {C:attention}pair{} of either.",
 		},

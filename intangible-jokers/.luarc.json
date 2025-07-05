@@ -4,7 +4,8 @@
 		"library": [
 			"{3rd}/love2d/library",
 			"~/Gamedev/Mods/Balatro/smods/",
-			"~/.local/share/Steam/steamapps/common/Balatro/extract/"
+			"~/.steam/steam/steamapps/common/Balatro/appdata/Mods/smods",
+			"~/.steam/steam/steamapps/common/Balatro/gamefiles"
 		]
 	},
 	"runtime": {

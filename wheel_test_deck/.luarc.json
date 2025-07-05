@@ -5,6 +5,7 @@
 			"{3rd}/love2d/library",
 			"~/Gamedev/Mods/Balatro/smods/",
 			"~/.steam/steam/steamapps/common/Balatro/appdata/Mods/smods",
+			"~/.steam/steam/steamapps/common/Balatro/appdata/Mods/Flower-Pot/",
 			"~/.steam/steam/steamapps/common/Balatro/gamefiles"
 		]
 	},
